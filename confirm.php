@@ -12,7 +12,7 @@ function h($str) {
 
 // データ取得（a）
 $name = $_POST['name'] ?? '';
-$company = $_POST['company'] ?? '';
+$companyName = $_POST['companyName'] ?? '';
 $email = $_POST['email'] ?? '';
 $age = $_POST['age'] ?? '';
 $message = $_POST['message'] ?? '';
@@ -25,7 +25,7 @@ if (empty($name) || !preg_match("/^[ぁ-んァ-ヶー一-龠a-zA-Z]+$/u", $name)
     $errors[] = "名前の形式が正しくありません。";
 }
 /* 会社名 */
-if ($company === '') $errors[] = '会社名は必須です';
+if ($companyName === '') $errors[] = '会社名は必須です';
 /* メール */
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $errors[] = "メールアドレスの形式が正しくありません。";
@@ -51,15 +51,16 @@ if (!empty($errors)) {
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>確認画面</title>
+<title>お問い合わせフォーム-確認画面</title>
 <link rel="stylesheet" href="style.css">
 <script src="style.js"></script>
 </head>
 
 <body>
 <div class="container">
-
-<div class="title">お問い合わせフォーム・確認画面</div>
+<header>
+    <h2 class="title">お問い合わせフォーム-確認画面</h2>
+</header>
 
 <div class="content">
     <div class="menu">
@@ -76,7 +77,7 @@ if (!empty($errors)) {
         <!-- テーブル表示（d） -->
         <table>
             <tr><td>お名前</td><td><?= h($name) ?></td></tr>
-            <tr><td>会社名</td><td><?= h($company) ?></td></tr>
+            <tr><td>会社名</td><td><?= h($companyName) ?></td></tr>
             <tr><td>メールアドレス</td><td><?= h($email) ?></td></tr>
             <tr><td>年齢</td><td><?= h($age) ?></td></tr>
             <tr><td>お問い合わせ内容</td><td><?= h($message) ?></td></tr>
@@ -84,16 +85,15 @@ if (!empty($errors)) {
 
         <div class="buttons">
             <!-- 戻るボタン -->
-            <button onclick="history.back()">戻る</button>
-
+            <input type="button" value="戻る" onclick="history.back()"></input>
             <!-- 送信ボタン（f） -->
             <form action="send.php" method="POST" style="display:inline;">
                 <input type="hidden" name="name" value="<?= h($name) ?>">
-                <input type="hidden" name="company" value="<?= h($company) ?>">
+                <input type="hidden" name="companyName" value="<?= h($companyName) ?>">
                 <input type="hidden" name="email" value="<?= h($email) ?>">
                 <input type="hidden" name="age" value="<?= h($age) ?>">
                 <input type="hidden" name="message" value="<?= h($message) ?>">
-                <button type="submit">送信</button>
+                <input type="submit" value="送信"></input>
             </form>
         </div>
     </div>

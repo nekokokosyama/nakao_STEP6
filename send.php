@@ -12,7 +12,7 @@ function h($str) {
 
 // データ取得（a,b）
 $name = $_POST['name'] ?? '';
-$company = $_POST['company'] ?? '';
+$companyName = $_POST['companyName'] ?? '';
 $email = $_POST['email'] ?? '';
 $age = $_POST['age'] ?? '';
 $message = $_POST['message'] ?? '';
@@ -23,7 +23,7 @@ $subject = 'お問い合わせが届きました';
 
 $body = "お問い合わせ内容\n\n";
 $body .= "名前: $name\n";
-$body .= "会社名: $company\n";
+$body .= "会社名: $companyName\n";
 $body .= "メール: $email\n";
 $body .= "年齢: $age\n";
 $body .= "内容:\n$message\n";
@@ -50,10 +50,11 @@ $result = mail($to, $subject, $body, $headers);
     <div class="main">
 
         <?php if ($result): ?>
-            <h2 style="color:red;">送信に失敗しました。</h2>
-        <?php else: ?>
             <h2>送信が完了しました！</h2>
             <p>お問い合わせありがとうございました。</p>
+        <?php else: ?>
+            <h2>送信に失敗しました</h2>
+            <p>再度お問い合わせフォームから送信してください。</p>
         <?php endif; ?>
 
         <p><a href="contact.php">お問い合わせフォームに戻る</a></p>

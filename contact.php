@@ -12,13 +12,17 @@
 </header>
 
 <!-- sidebar -->
-<ul>
-    <li><a href="#">トップページ</a></li>
-    <li><a href="#">人気投稿</a></li>
-    <li><a href="#">エンジニアおすすめ商品</a></li>
-    <li><a href="#">エンジニアおすすめ記事</a></li>
-    <li><a href="#">投稿ページ</a></li>
-</ul>
+<aside>
+    <nav>
+        <ul>
+            <li><a href="#">トップページ</a></li>
+            <li><a href="#">人気投稿</a></li>
+            <li><a href="#">エンジニアおすすめ商品</a></li>
+            <li><a href="#">エンジニアおすすめ記事</a></li>
+            <li><a href="#">投稿ページ</a></li>
+        </ul>
+    </nav>
+</aside>
 
 <!-- フォーム -->
 <form action="confirm.php" method="post">
@@ -29,7 +33,7 @@
         </tr>
         <tr>
             <th>会社名</th>
-            <td><input type="text" id="company" name="company" size="40"></td>
+            <td><input type="text" id="companyName" name="companyName" size="40"></td>
         </tr>
         <tr>
             <th>メールアドレス</th>

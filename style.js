@@ -3,13 +3,13 @@ document.querySelector("form").addEventListener("submit", function(e) {
 
     // 値取得
     const name = document.querySelector('[name="name"]').value.trim();
-    const company = document.querySelector('[name="companyName"]').value.trim();
+    const companyName = document.querySelector('[name="companyName"]').value.trim();
     const email = document.querySelector('[name="email"]').value.trim();
     const age = document.querySelector('[name="age"]').value.trim();
     const message = document.querySelector('[name="message"]').value.trim();
   
     // ① 入力チェック（5-2 & 5-3）
-    if (!name || !company || !email || !age || !message) {
+    if (!name || !companyName || !email || !age || !message) {
       alert("必須項目が未入力です。入力内容をご確認ください。");
       e.preventDefault(); // 送信キャンセル
       return;
@@ -20,7 +20,7 @@ document.querySelector("form").addEventListener("submit", function(e) {
   `下記の内容を送信しますか？
   
   お名前：${name}
-  会社名：${company}
+  会社名：${companyName}
   メール：${email}
   年齢：${age}
   内容：${message}`;
